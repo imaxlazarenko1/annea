@@ -19,22 +19,51 @@
             background-color: #fefefe;
             color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
+        }
+        
+        /* Background Image with Parallax */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .background-image {
+            width: 100%;
+            height: 150%;
+            background-image: url('IMG_1224.PNG');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .content-overlay {
+            position: relative;
+            background: rgba(255, 255, 255, 0.85);
+            min-height: 100vh;
         }
         
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, #f9f0ff 0%, #e6f3ff 100%);
-            padding: 20px 0;
+            background: rgba(249, 240, 255, 0.9);
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 100;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
         }
         
         .header-content {
@@ -44,7 +73,7 @@
         }
         
         .logo {
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 700;
             color: #6a5acd;
             text-decoration: none;
@@ -60,7 +89,7 @@
         }
         
         nav ul li {
-            margin-left: 30px;
+            margin-left: 20px;
         }
         
         nav ul li a {
@@ -68,45 +97,55 @@
             color: #555;
             font-weight: 500;
             transition: color 0.3s;
+            font-size: 14px;
         }
         
         nav ul li a:hover {
             color: #6a5acd;
         }
         
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #6a5acd;
+        }
+        
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
             padding: 100px 0;
             text-align: center;
+            background: rgba(255, 255, 255, 0.7);
         }
         
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
+            font-size: 32px;
+            margin-bottom: 15px;
             color: #333;
         }
         
         .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto 30px;
+            font-size: 16px;
+            max-width: 100%;
+            margin: 0 auto 25px;
             color: #555;
+            padding: 0 10px;
         }
         
         .btn {
             display: inline-block;
             background: #6a5acd;
             color: white;
-            padding: 12px 30px;
+            padding: 10px 25px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
+            font-size: 14px;
         }
         
         .btn:hover {
@@ -117,36 +156,37 @@
         
         /* Features Section */
         .features {
-            padding: 80px 0;
-            background-color: #f9f9f9;
+            padding: 60px 0;
+            background: rgba(249, 249, 249, 0.8);
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
         
         .section-title h2 {
-            font-size: 36px;
+            font-size: 28px;
             color: #333;
             margin-bottom: 15px;
         }
         
         .section-title p {
             color: #777;
-            max-width: 600px;
+            max-width: 100%;
             margin: 0 auto;
+            padding: 0 15px;
         }
         
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
         
         .feature-card {
             background: white;
-            padding: 30px;
+            padding: 25px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             text-align: center;
@@ -158,29 +198,32 @@
         }
         
         .feature-icon {
-            font-size: 40px;
-            margin-bottom: 20px;
+            font-size: 35px;
+            margin-bottom: 15px;
             color: #6a5acd;
         }
         
         .feature-card h3 {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             color: #333;
+            font-size: 18px;
         }
         
         .feature-card p {
             color: #666;
+            font-size: 14px;
         }
         
         /* Products Section */
         .products {
-            padding: 80px 0;
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.8);
         }
         
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
         
         .product-card {
@@ -196,55 +239,58 @@
         }
         
         .product-img {
-            height: 250px;
+            height: 200px;
             background-color: #f5f5f5;
             background-size: cover;
             background-position: center;
         }
         
         .product-info {
-            padding: 20px;
+            padding: 15px;
         }
         
         .product-info h3 {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: #333;
+            font-size: 18px;
         }
         
         .product-info p {
             color: #666;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            font-size: 14px;
         }
         
         .price {
             font-weight: 700;
             color: #6a5acd;
-            font-size: 18px;
+            font-size: 16px;
         }
         
         /* Testimonials */
         .testimonials {
-            padding: 80px 0;
-            background-color: #f9f9f9;
+            padding: 60px 0;
+            background: rgba(249, 249, 249, 0.8);
         }
         
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
         
         .testimonial-card {
             background: white;
-            padding: 30px;
+            padding: 25px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
         .testimonial-text {
             font-style: italic;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #555;
+            font-size: 14px;
         }
         
         .testimonial-author {
@@ -253,40 +299,42 @@
         }
         
         .author-avatar {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background-color: #ddd;
-            margin-right: 15px;
+            margin-right: 12px;
         }
         
         .author-info h4 {
             color: #333;
             margin-bottom: 5px;
+            font-size: 16px;
         }
         
         .author-info p {
             color: #777;
-            font-size: 14px;
+            font-size: 13px;
         }
         
         /* CTA Section */
         .cta {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #6a5acd 0%, #8a7de6 100%);
+            padding: 60px 0;
+            background: linear-gradient(135deg, rgba(106, 90, 205, 0.9) 0%, rgba(138, 125, 230, 0.9) 100%);
             color: white;
             text-align: center;
         }
         
         .cta h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
+            font-size: 28px;
+            margin-bottom: 15px;
         }
         
         .cta p {
-            max-width: 600px;
-            margin: 0 auto 30px;
-            font-size: 18px;
+            max-width: 100%;
+            margin: 0 auto 25px;
+            font-size: 16px;
+            padding: 0 15px;
         }
         
         .cta .btn {
@@ -300,19 +348,22 @@
         
         /* Instagram Section */
         .instagram {
-            padding: 60px 0;
+            padding: 50px 0;
             text-align: center;
+            background: rgba(255, 255, 255, 0.8);
         }
         
         .instagram h2 {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #333;
+            font-size: 28px;
         }
         
         .instagram p {
-            max-width: 600px;
-            margin: 0 auto 30px;
+            max-width: 100%;
+            margin: 0 auto 25px;
             color: #666;
+            padding: 0 15px;
         }
         
         .instagram-btn {
@@ -320,11 +371,12 @@
             align-items: center;
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             color: white;
-            padding: 12px 25px;
+            padding: 10px 20px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
+            font-size: 14px;
         }
         
         .instagram-btn:hover {
@@ -333,27 +385,27 @@
         }
         
         .instagram-icon {
-            margin-right: 10px;
-            font-size: 20px;
+            margin-right: 8px;
+            font-size: 18px;
         }
         
         /* Footer */
         footer {
-            background: #333;
+            background: rgba(51, 51, 51, 0.9);
             color: #fff;
-            padding: 50px 0 20px;
+            padding: 40px 0 15px;
         }
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            margin-bottom: 25px;
         }
         
         .footer-column h3 {
-            margin-bottom: 20px;
-            font-size: 18px;
+            margin-bottom: 15px;
+            font-size: 16px;
         }
         
         .footer-column ul {
@@ -361,256 +413,384 @@
         }
         
         .footer-column ul li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         
         .footer-column ul li a {
             color: #bbb;
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 14px;
         }
         
         .footer-column ul li a:hover {
             color: white;
         }
         
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
+        .footer-column p {
             color: #bbb;
             font-size: 14px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid #444;
+            color: #bbb;
+            font-size: 13px;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 1000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .mobile-nav.active {
+            display: flex;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .mobile-nav ul li {
+            margin: 20px 0;
+        }
+        
+        .mobile-nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #6a5acd;
         }
         
         /* Responsive Styles */
         @media (max-width: 768px) {
             .header-content {
-                flex-direction: column;
+                flex-direction: row;
             }
             
             nav ul {
-                margin-top: 20px;
+                display: none;
             }
             
-            nav ul li {
-                margin-left: 15px;
-                margin-right: 15px;
+            .mobile-menu-btn {
+                display: block;
             }
             
             .hero h1 {
-                font-size: 36px;
+                font-size: 28px;
             }
             
             .hero p {
-                font-size: 18px;
+                font-size: 15px;
+            }
+            
+            .section-title h2 {
+                font-size: 24px;
+            }
+            
+            .features-grid, .products-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 24px;
+            }
+            
+            .features, .products, .testimonials, .cta, .instagram {
+                padding: 40px 0;
+            }
+            
+            .feature-card, .testimonial-card {
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">annea<span>_candles</span></a>
-                <nav>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
+    <!-- Background Image -->
+    <div class="background-container">
+        <div class="background-image"></div>
+    </div>
+    
+    <!-- Content Overlay -->
+    <div class="content-overlay">
+        <!-- Header Section -->
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <a href="#" class="logo">annea<span>_candles</span></a>
+                    <nav>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#products">Products</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <button class="mobile-menu-btn">☰</button>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Transform Your Space with Floral Elegance</h1>
-            <p>Discover our exquisite annea_candles Collection, handcrafted with premium soy wax and natural floral fragrances to create the perfect ambiance in your home. Follow our journey on <a href="https://www.instagram.com/annea_candles/?igsh=c29qdGltdW9ldGI0" style="color: #6a5acd; font-weight: 600; text-decoration: none;">Instagram</a> for the latest updates and inspirations!</p>
-            <a href="#products" class="btn">Explore Collection</a>
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <button class="close-menu">×</button>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-    </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Choose Our Candles</h2>
-                <p>Experience the difference with our premium, handcrafted candles designed to elevate your everyday moments.</p>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>Transform Your Space with Floral Elegance</h1>
+                <p>Discover our exquisite annea_candles Collection, handcrafted with premium soy wax and natural floral fragrances to create the perfect ambiance in your home. Follow our journey on <a href="https://www.instagram.com/annea_candles/?igsh=c29qdGltdW9ldGI0" style="color: #6a5acd; font-weight: 600; text-decoration: none;">Instagram</a> for the latest updates and inspirations!</p>
+                <a href="#products" class="btn">Explore Collection</a>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🌿</div>
-                    <h3>Natural Ingredients</h3>
-                    <p>Made with 100% natural soy wax and pure essential oils for a clean, long-lasting burn.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌸</div>
-                    <h3>Floral Fragrances</h3>
-                    <p>Inspired by nature's most beautiful blooms, from delicate lavender to vibrant rose.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🕯️</div>
-                    <h3>Hand-Poured</h3>
-                    <p>Each candle is carefully hand-poured with attention to detail and quality craftsmanship.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Products Section -->
-    <section class="products" id="products">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Signature Collection</h2>
-                <p>Discover our range of beautifully scented candles, each with its own unique character and charm.</p>
-            </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://prnt.sc/99-k_XHLWkmm');"></div>
-                    <div class="product-info">
-                        <h3>Lavender Dreams</h3>
-                        <p>Calming lavender essential oil blended with hints of vanilla for a soothing experience.</p>
-                        <div class="price">$24.99</div>
-                    </div>
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Choose Our Candles</h2>
+                    <p>Experience the difference with our premium, handcrafted candles designed to elevate your everyday moments.</p>
                 </div>
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://prnt.sc/Z7R9ia-XM2fI');"></div>
-                    <div class="product-info">
-                        <h3>Rose Garden</h3>
-                        <p>The classic scent of fresh roses with subtle notes of green leaves and dewy petals.</p>
-                        <div class="price">$26.99</div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🌿</div>
+                        <h3>Natural Ingredients</h3>
+                        <p>Made with 100% natural soy wax and pure essential oils for a clean, long-lasting burn.</p>
                     </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://prnt.sc/FEGr3LeSg2Uo');"></div>
-                    <div class="product-info">
-                        <h3>Jasmine Nights</h3>
-                        <p>Exotic jasmine blended with sandalwood for a sensual, enchanting fragrance.</p>
-                        <div class="price">$28.99</div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌸</div>
+                        <h3>Floral Fragrances</h3>
+                        <p>Inspired by nature's most beautiful blooms, from delicate lavender to vibrant rose.</p>
                     </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://prnt.sc/XSqK2uVjA-VC');"></div>
-                    <div class="product-info">
-                        <h3>Spring Meadow</h3>
-                        <p>A fresh blend of wildflowers, green grass, and a hint of citrus for a revitalizing scent.</p>
-                        <div class="price">$25.99</div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🕯️</div>
+                        <h3>Hand-Poured</h3>
+                        <p>Each candle is carefully hand-poured with attention to detail and quality craftsmanship.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>What Our Customers Say</h2>
-                <p>Don't just take our word for it - hear from our delighted customers who have transformed their spaces with our candles.</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"The Lavender Dreams candle has completely transformed my bedtime routine. The scent is so calming and the burn time is incredible!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar"></div>
-                        <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>Verified Buyer</p>
+        <!-- Products Section -->
+        <section class="products" id="products">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Signature Collection</h2>
+                    <p>Discover our range of beautifully scented candles, each with its own unique character and charm.</p>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('https://tinyurl.com/2anqg9ob');"></div>
+                        <div class="product-info">
+                            <h3>Lavender Dreams</h3>
+                            <p>Calming lavender essential oil blended with hints of vanilla for a soothing experience.</p>
+                            <div class="price">$24.99</div>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"I've tried many scented candles, but none compare to the quality and fragrance of annea_candles. The Rose Garden is my absolute favorite!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar"></div>
-                        <div class="author-info">
-                            <h4>Michael Torres</h4>
-                            <p>Verified Buyer</p>
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('https://i.ibb.co/0Q8y2Jz/candle-bg.jpg');"></div>
+                        <div class="product-info">
+                            <h3>Rose Garden</h3>
+                            <p>The classic scent of fresh roses with subtle notes of green leaves and dewy petals.</p>
+                            <div class="price">$26.99</div>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"These candles make the perfect gift! Beautiful packaging, incredible scents, and they burn so cleanly. My friends always ask where I get them."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar"></div>
-                        <div class="author-info">
-                            <h4>Emily Chen</h4>
-                            <p>Verified Buyer</p>
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('https://i.ibb.co/0Q8y2Jz/candle-bg.jpg');"></div>
+                        <div class="product-info">
+                            <h3>Jasmine Nights</h3>
+                            <p>Exotic jasmine blended with sandalwood for a sensual, enchanting fragrance.</p>
+                            <div class="price">$28.99</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('https://i.ibb.co/0Q8y2Jz/candle-bg.jpg');"></div>
+                        <div class="product-info">
+                            <h3>Spring Meadow</h3>
+                            <p>A fresh blend of wildflowers, green grass, and a hint of citrus for a revitalizing scent.</p>
+                            <div class="price">$25.99</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to Transform Your Space?</h2>
-            <p>Join thousands of satisfied customers who have elevated their homes with our premium floral candles.</p>
-            <a href="#products" class="btn">Shop Now</a>
-        </div>
-    </section>
-
-    <!-- Instagram Section -->
-    <section class="instagram">
-        <div class="container">
-            <h2>Follow Our Journey</h2>
-            <p>Discover behind-the-scenes moments, new product launches, and inspiring candle arrangements on our Instagram.</p>
-            <a href="https://www.instagram.com/annea_candles/?igsh=c29qdGltdW9ldGI0" class="instagram-btn" target="_blank">
-                <span class="instagram-icon">📷</span>
-                Follow @annea_candles
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>annea_candles</h3>
-                    <p>Creating beautiful, fragrant moments with our handcrafted floral candles since 2020.</p>
+        <!-- Testimonials Section -->
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What Our Customers Say</h2>
+                    <p>Don't just take our word for it - hear from our delighted customers who have transformed their spaces with our candles.</p>
                 </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Customer Service</h3>
-                    <ul>
-                        <li><a href="#">Shipping & Returns</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li>Email: hello@anneacandles.com</li>
-                        <li>Phone: +1 (555) 123-4567</li>
-                        <li>Hours: Mon-Fri 9am-5pm EST</li>
-                    </ul>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The Lavender Dreams candle has completely transformed my bedtime routine. The scent is so calming and the burn time is incredible!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"></div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Verified Buyer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"I've tried many scented candles, but none compare to the quality and fragrance of annea_candles. The Rose Garden is my absolute favorite!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"></div>
+                            <div class="author-info">
+                                <h4>Michael Torres</h4>
+                                <p>Verified Buyer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"These candles make the perfect gift! Beautiful packaging, incredible scents, and they burn so cleanly. My friends always ask where I get them."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"></div>
+                            <div class="author-info">
+                                <h4>Emily Chen</h4>
+                                <p>Verified Buyer</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2023 annea_candles. All rights reserved.</p>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Transform Your Space?</h2>
+                <p>Join thousands of satisfied customers who have elevated their homes with our premium floral candles.</p>
+                <a href="#products" class="btn">Shop Now</a>
             </div>
-        </div>
-    </footer>
+        </section>
+
+        <!-- Instagram Section -->
+        <section class="instagram">
+            <div class="container">
+                <h2>Follow Our Journey</h2>
+                <p>Discover behind-the-scenes moments, new product launches, and inspiring candle arrangements on our Instagram.</p>
+                <a href="https://www.instagram.com/annea_candles/?igsh=c29qdGltdW9ldGI0" class="instagram-btn" target="_blank">
+                    <span class="instagram-icon">📷</span>
+                    Follow @annea_candles
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>annea_candles</h3>
+                        <p>Creating beautiful, fragrant moments with our handcrafted floral candles since 2020.</p>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#products">Products</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Customer Service</h3>
+                        <ul>
+                            <li><a href="#">Shipping & Returns</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contact</h3>
+                        <ul>
+                            <li>Email: hello@anneacandles.com</li>
+                            <li>Phone: +1 (555) 123-4567</li>
+                            <li>Hours: Mon-Fri 9am-5pm EST</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2023 annea_candles. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
 
     <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const closeMenuBtn = document.querySelector('.close-menu');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+        });
+        
+        closeMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+            });
+        });
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -627,6 +807,13 @@
                     });
                 }
             });
+        });
+        
+        // Parallax effect for background
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const background = document.querySelector('.background-image');
+            background.style.transform = `translateY(${scrolled * 0.5}px)`;
         });
     </script>
 </body>
