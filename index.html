@@ -619,7 +619,7 @@
                 </div>
             </div>
         </section>
-       <!-- Products Section -->
+      <!-- Products Section -->
 <section class="products" id="products">
     <div class="container">
         <div class="section-title">
@@ -629,10 +629,15 @@
         <div class="products-grid">
             <div class="product-card">
                 <div class="product-video">
-                    <video class="instagram-video" muted playsinline loop preload="auto">
+                    <video class="instagram-video" playsinline loop preload="auto">
                         <source src="video_1.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
+                    <div class="video-controls">
+                        <button class="sound-btn" aria-label="Toggle sound">
+                            <span class="sound-icon">🔇</span>
+                        </button>
+                    </div>
                 </div>
                 <div class="product-info">
                     <h3>Garden Roses Set</h3>
@@ -660,6 +665,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     max-width: 400px;
     width: 100%;
+    position: relative;
 }
 
 .product-card:hover {
@@ -680,6 +686,41 @@
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.video-controls {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    z-index: 10;
+}
+
+.sound-btn {
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.sound-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+.sound-icon {
+    font-size: 18px;
+    filter: brightness(0) invert(1);
+}
+
+.sound-btn.muted .sound-icon {
+    opacity: 0.7;
 }
 
 .product-info {
@@ -730,6 +771,15 @@
     .price {
         font-size: 18px;
     }
+    
+    .sound-btn {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .sound-icon {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -740,14 +790,25 @@
     .product-info {
         padding: 15px;
     }
+    
+    .video-controls {
+        bottom: 10px;
+        right: 10px;
+    }
 }
 </style>
 
 <script>
-// Auto-play video when it comes into viewport
 document.addEventListener('DOMContentLoaded', function() {
     const video = document.querySelector('.instagram-video');
+    const soundBtn = document.querySelector('.sound-btn');
+    const soundIcon = soundBtn.querySelector('.sound-icon');
     
+    // Начинаем с выключенного звука для автозапуска
+    video.muted = true;
+    soundBtn.classList.add('muted');
+    
+    // Автовоспроизведение при скролле
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -759,19 +820,44 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, {
-        threshold: 0.5 // Play when 50% of video is visible
+        threshold: 0.5
     });
     
     if (video) {
         observer.observe(video);
     }
     
-    // Fallback: play on click if autoplay is blocked
+    // Переключение звука по клику на кнопку
+    soundBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        video.muted = !video.muted;
+        
+        if (video.muted) {
+            soundBtn.classList.add('muted');
+            soundIcon.textContent = '🔇';
+        } else {
+            soundBtn.classList.remove('muted');
+            soundIcon.textContent = '🔊';
+        }
+    });
+    
+    // Переключение звука по клику на само видео
     video.addEventListener('click', function() {
         if (video.paused) {
             video.play();
         } else {
             video.pause();
+        }
+    });
+    
+    // Автоматическое обновление иконки звука при изменении состояния
+    video.addEventListener('volumechange', function() {
+        if (video.muted) {
+            soundBtn.classList.add('muted');
+            soundIcon.textContent = '🔇';
+        } else {
+            soundBtn.classList.remove('muted');
+            soundIcon.textContent = '🔊';
         }
     });
 });
