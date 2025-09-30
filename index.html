@@ -619,6 +619,163 @@
                 </div>
             </div>
         </section>
+       <!-- Products Section -->
+<section class="products" id="products">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Signature Collection</h2>
+            <p>Discover our range of beautifully scented candles, each with its own unique character and charm.</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-video">
+                    <video class="instagram-video" muted playsinline loop preload="auto">
+                        <source src="video_1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="product-info">
+                    <h3>Garden Roses Set</h3>
+                    <p>Set of 2 candles Garden Roses + extinguisher (gold, black to choose from) with branded packaging</p>
+                    <div class="price">39,99€</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+.product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 400px;
+    width: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.product-video {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    background: #000;
+}
+
+.instagram-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.product-info {
+    padding: 25px;
+    text-align: center;
+}
+
+.product-info h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: #333;
+    font-weight: 600;
+}
+
+.product-info p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.price {
+    font-weight: 700;
+    color: #6a5acd;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .product-video {
+        height: 400px;
+    }
+    
+    .product-info {
+        padding: 20px;
+    }
+    
+    .product-info h3 {
+        font-size: 20px;
+    }
+    
+    .price {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-video {
+        height: 350px;
+    }
+    
+    .product-info {
+        padding: 15px;
+    }
+}
+</style>
+
+<script>
+// Auto-play video when it comes into viewport
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.querySelector('.instagram-video');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                video.play().catch(e => {
+                    console.log('Autoplay prevented:', e);
+                });
+            } else {
+                video.pause();
+            }
+        });
+    }, {
+        threshold: 0.5 // Play when 50% of video is visible
+    });
+    
+    if (video) {
+        observer.observe(video);
+    }
+    
+    // Fallback: play on click if autoplay is blocked
+    video.addEventListener('click', function() {
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    });
+});
+</script>
         
         <!-- Testimonials Section -->
         <section class="testimonials" id="testimonials">
